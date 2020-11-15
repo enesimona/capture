@@ -5,15 +5,18 @@ import styled from "styled-components";
 import Nav from "./components/Nav";
 import OurWork from "./pages/OurWork";
 import ContactUs from "./pages/ContactUs";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 import MovieDetail from "./pages/MovieDetail";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
+  const location = useLocation();
   return (
     <div className="App">
       <GlobalStyle />
       <Nav></Nav>
-      <Switch>
+      {/* <AnimatePresence exitBeforeEnter> */}
+      <Switch location={location} key={location.pathname}>
         <Route path="/" exact>
           <AboutUs></AboutUs>
         </Route>
@@ -27,6 +30,7 @@ function App() {
           <ContactUs></ContactUs>
         </Route>
       </Switch>
+      {/* </AnimatePresence> */}
     </div>
   );
 }
