@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { MovieState } from "../movieState";
 import { motion } from "framer-motion";
 import { pageAnimation } from "../animation";
+import ScrollTop from "../components/ScrollTop";
 
 const MovieDetail = () => {
   const history = useHistory();
@@ -43,6 +44,7 @@ const MovieDetail = () => {
           </ImageDisplay>
         </Details>
       )}
+      <ScrollTop></ScrollTop>
     </>
   );
 };
@@ -74,6 +76,10 @@ const Awards = styled.div`
   margin: 5rem 5rem;
   align-items: center;
   justify-content: space-around;
+  @media (max-width: 1000px) {
+    display: block;
+    margin: 2rem 2rem;
+  }
 `;
 
 //Award Component
